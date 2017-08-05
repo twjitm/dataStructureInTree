@@ -5,7 +5,7 @@ import com.datastruct.linklist.entity.Node;
 
 /**
  * Created by 文江 on 2017/8/5.
- * 链式存储结构的线性表
+ * 链式存储结构的线性表(单链表)
  */
 public class LinkLists implements IList {
     private Node head;
