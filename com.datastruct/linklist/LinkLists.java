@@ -61,12 +61,16 @@ public class LinkLists implements IList {
             throw new IndexOutOfBoundsException("error");
         }
         Node node = this.head;
-        while (node != null) {
-
+        int i = 0;
+        while (i != position) {
+            node = node.getNextNode();
+            i++;
         }
-        return 0;
+        if (node != null) node.setValue(v);
+        return position;
     }
 
+    //头插发
     @Override
     public void insert(int position, Object v) throws Exception {
         Node node = this.head.getNextNode();
@@ -90,23 +94,45 @@ public class LinkLists implements IList {
         newNode.setNextNode(next);
         newNode.setValue(v);
         node.setNextNode(newNode);
-
     }
 
 
     @Override
     public Node remove(int i) {
+        if (i < 0) {
+            return null;
+        }
+        Node node = this.head.getNextNode();
+        int j = 0;
+        while (j == i) {
+            node = node.getNextNode();
+        }
+        if (node != null) {
+            Node temp = node;
+            node = null;
+            return temp;
+        }
         return null;
     }
 
     @Override
     public void removeAll() {
-
+        this.head = null;
     }
 
     @Override
     public Object indexOf(Object key) {
-        return null;
+        Node node = this.head;
+        int i = -1;
+        while (node.getNextNode() != null) {
+            if (node.getNextNode() != null) {
+                if (node.getNextNode().getValue().equals(key)) {
+                    return i;
+                }
+            }
+            i++;
+        }
+        return -1;
     }
 
 
