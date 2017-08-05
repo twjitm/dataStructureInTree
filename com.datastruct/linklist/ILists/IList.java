@@ -11,7 +11,7 @@ public interface IList<T> {
      * @param i
      * @return
      */
-    public T get(int i);
+    public T get(int i) throws Exception;
 
     /**
      * 判断线性表是否空
@@ -34,7 +34,7 @@ public interface IList<T> {
      * @param position
      * @param v
      */
-    public int set(int position, T v);
+    public int set(int position, T v) throws Exception;
 
     /**
      * 插入x作为第i个元素
@@ -42,7 +42,7 @@ public interface IList<T> {
      * @param i
      * @param x
      */
-    void insert(int i, T x);
+    void insert(int i, T x) throws Exception;
 
     /**
      * 删除第i个元素并返回被删除对象
