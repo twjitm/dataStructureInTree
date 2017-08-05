@@ -1,14 +1,22 @@
 package com.datastruct.linklist;
 
 import com.datastruct.linklist.ILists.IList;
+import com.datastruct.linklist.entity.Node;
 
 /**
  * Created by 文江 on 2017/8/5.
  * 链式存储结构的线性表
  */
-public class LinkLists<T> implements IList<T> {
+public class LinkLists implements IList<Node> {
+    private Node head;
+
+    public LinkLists() {
+        head = new Node();
+    }
+    
+
     @Override
-    public T get(int i) {
+    public Node get(int i) {
         return null;
     }
 
@@ -23,17 +31,17 @@ public class LinkLists<T> implements IList<T> {
     }
 
     @Override
-    public int set(int position, T v) {
+    public int set(int position, Node v) {
         return 0;
     }
 
     @Override
-    public void insert(int i, T x) {
+    public void insert(int i, Node x) {
 
     }
 
     @Override
-    public T remove(int i) {
+    public Node remove(int i) {
         return null;
     }
 
@@ -43,7 +51,7 @@ public class LinkLists<T> implements IList<T> {
     }
 
     @Override
-    public T indexOf(T key) {
+    public Node indexOf(Node key) {
         return null;
     }
 }
