@@ -28,7 +28,7 @@ public abstract class AbstractTrees<T> {
         if (null == root) {
             root = new TreeNode(t);
         } else {
-            TreeNode treeNode
+            //TreeNode treeNode
         }
 
     }
