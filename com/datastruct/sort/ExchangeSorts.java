@@ -30,8 +30,31 @@ public class ExchangeSorts {
      *
      * @param array
      */
-    public void fastSort(int array[]) {
-        
+    public static void quickSort1(int a[], int low, int hight) {
+        if (a == null) {
+            return;
+        }
+        if (low > hight) {
+            return;
+        }
+        int intdex = a[low], i = low, j = hight;
+        while (i < j) {
+            while (i < j && a[j] >= intdex) {
+                j--;
+            }
+            if (i < j) {
+                a[i++] = a[j];
+            }
+            while (i < j && a[i] < intdex) {
+                i++;
+            }
+            if (i < j) {
+                a[j--] = a[i];
+            }
+        }
+        a[i]=intdex;
+        quickSort1(a,low,i-1);
+        quickSort1(a,i+1,hight);
 
     }
 
