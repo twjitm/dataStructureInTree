@@ -1,5 +1,7 @@
 package com.datastruct.sort;
 
+import java.time.YearMonth;
+
 /**
  * Created by 文江 on 2017/8/20.
  * 交换排序
@@ -16,7 +18,7 @@ public class ExchangeSorts {
         }
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - 1 - i; j++) {
-                if (array[j] < array[j + 1]) {
+                if (array[j] > array[j + 1]) {
                     int temp = array[j + 1];
                     array[j + 1] = array[j];
                     array[j] = temp;
@@ -28,7 +30,7 @@ public class ExchangeSorts {
     /**
      * 快速排序
      *
-     * @param array
+     * @param
      */
     public static void quickSort1(int a[], int low, int hight) {
         if (a == null) {
@@ -52,12 +54,13 @@ public class ExchangeSorts {
                 a[j--] = a[i];
             }
         }
-        a[i]=intdex;
-        quickSort1(a,low,i-1);
-        quickSort1(a,i+1,hight);
+        a[i] = intdex;
+        quickSort1(a, low, i - 1);
+        quickSort1(a, i + 1, hight);
 
     }
 
+    private static int aqq = 0;
 
     public static void main(String[] args) {
         //Arrays.sort();
@@ -66,6 +69,9 @@ public class ExchangeSorts {
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);
         }
+
+        YearMonth yearMonth=YearMonth.now();
+
     }
 
 }
