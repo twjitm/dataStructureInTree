@@ -1,5 +1,7 @@
 package com.datastruct.sort;
 
+import java.util.Arrays;
+
 /**
  * Created by 文江 on 2018/4/16.
  * 归并排序算法
@@ -61,9 +63,9 @@ public class MergeSort {
      * @param low
      * @param mid
      * @param high
-     * @param temp
      */
-    public static void merge(int[] array, int low, int mid, int high, int[] temp) {
+    public static void merge(int[] array, int low, int mid, int high) {
+        int[] temp = new int[high - low + 1];
         int k = 0;
         int j = mid + 1;
         int m = mid;
@@ -96,12 +98,13 @@ public class MergeSort {
 
     }
 
-    public static void mergeSort(int array[], int low, int high, int[] temp) {
+    public static void mergeSort(int array[], int low, int high) {
         if (low < high) {
             int mid = (low + high) / 2;
-            mergeSort(array, low, mid, temp);
-            mergeSort(array, mid + 1, high, temp);
-            merge(array, low, mid, high, temp);
+            mergeSort(array, low, mid);
+            mergeSort(array, mid + 1, high);
+            merge(array, low, mid, high);
+            System.out.println(Arrays.toString(array));
         }
 
     }
@@ -112,7 +115,7 @@ public class MergeSort {
         int array1[] = {3, 4, 5};
         int resule[] = new int[6];
         int test[] = {4, 6, 1, 8, 3, 9, 0};
-        mergeSort(test, 0, test.length - 1, new int[test.length]);
+        mergeSort(test, 0, test.length - 1);
     }
 
 }
