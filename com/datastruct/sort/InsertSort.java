@@ -5,6 +5,52 @@ package com.datastruct.sort;
  * insert sort
  */
 public class InsertSort {
+
+    /**
+     * 插入排序，在已经排好序的序列里面插入一个数，然后在进行排序
+     *
+     * @param array
+     * @param n
+     */
+    public static void insertSort(int array[], int n) {
+        for (int i = 1; i < n; i++) {
+            if (array[i] < array[i - 1]) {
+                int j = i - 1;
+                int temp = array[i];
+                array[i] = array[i - 1];
+                //找到插入位置
+                while (temp < array[j]) {
+                    array[j + 1] = array[j];
+                    j--;
+                    if (j <= 0) {
+                        break;
+                    }
+                }
+                array[j + 1] = temp;
+            }
+        }
+
+    }
+
+    //插入排序练习练习
+    public void insertTemp(int array[], int length) {
+        for (int i = 1; i < length; i++) {
+            if (array[i] < array[i - 1]) {
+                int j = i - 1;
+                int temp = array[i - 1];
+                while (temp < array[j]) {
+                    array[j + 1] = array[j];
+                    j--;
+                    if (j <= 0) {
+                        break;
+                    }
+                }
+                array[j + 1] = temp;
+            }
+        }
+    }
+
+
     /**
      * 1、首先比较数组的前两个数据，并排序；
      * 　2、比较第三个元素与前两个排好序的数据，并将第三个元素放入适当的位置；
@@ -172,9 +218,10 @@ public class InsertSort {
 
     public static void main(String[] args) {
         int[] array = {3, 1, 5, 7, 2, 4, 9, 6, 10, 8};
+        insertSort(array, array.length);
         // shellSort(a);
         // selectSort(a);
-        heapSort(array);
+        // heapSort(array);
     }
 
     public static void println(int[] array) {
