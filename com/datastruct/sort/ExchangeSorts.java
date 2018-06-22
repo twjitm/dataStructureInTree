@@ -140,6 +140,28 @@ public class ExchangeSorts {
 
     }
 
+    /**
+     * 一趟快速排序
+     * @param array
+     * @param low
+     * @param hight
+     * @return
+     */
+    public int oneQuickSort(int array[], int low, int hight) {
+        int key = array[low];//标记
+        while (low < hight) {
+            while ((low < hight) && key < array[hight]) {
+                hight--;
+            }
+            swap(array, low, hight);
+            while ((low < hight) && key > array[low]) {
+                low++;
+            }
+            swap(array, low, hight);
+        }
+        return low;
+    }
+
     void quickSort(int array[], int low, int high) {
         if (low < high) {
             int parentKey = partition(array, low, high);

@@ -50,6 +50,26 @@ public class InsertSort {
         }
     }
 
+    //默写插入排序
+    public static void insertSort(int array[]) {
+        int length = array.length;
+        for (int i = 1; i < length; i++) {
+            int temp = array[i];
+            if (array[i] < array[i - 1]) {
+                int j = i - 1;
+                //移出插入位置
+                while (temp < array[j]) {
+                    array[j + 1] = array[j];
+                    j--;
+                    if (j < 0) {
+                        break;
+                    }
+                }
+                array[j + 1] = temp;
+            }
+        }
+    }
+
 
     /**
      * 1、首先比较数组的前两个数据，并排序；
@@ -115,7 +135,21 @@ public class InsertSort {
             }
         }
     }
+     //默写希尔排序
+    public static void shellSort(int array[],int dk){
+        for(int i=dk;i<array.length;i=i+1){
+            int temp=array[dk];
+            int j=dk-1;
+            if(array[i]<array[i-dk]){
+              while (temp<array[j]){
+                  array[j+dk]=array[j];
+                  j-=dk;
+              }
+              array[j+dk]=temp;
+            }
+        }
 
+    }
     /**
      * 简短选择排序 ；在要排序的一组数中，选出最小（或者最大）的一个数与第1个位置的数交换；然后在剩下的数当中再找最小
      * （或者最大）的与第2个位置的数交换，依次类推，
@@ -218,7 +252,9 @@ public class InsertSort {
 
     public static void main(String[] args) {
         int[] array = {3, 1, 5, 7, 2, 4, 9, 6, 10, 8};
-        insertSort(array, array.length);
+        insertSort(array);
+        println(array);
+        //insertSort(array, array.length);
         // shellSort(a);
         // selectSort(a);
         // heapSort(array);
@@ -226,9 +262,11 @@ public class InsertSort {
 
     public static void println(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            System.out.print(array[i]);
+            System.out.print(array[i] + ", ");
         }
         System.out.print("\n");
     }
+
+
 
 }
